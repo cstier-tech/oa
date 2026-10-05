@@ -1,0 +1,615 @@
+/// <reference path="../../styles/_variables-shared.scss" />
+/// <reference path="../../styles/_mixins.scss" />
+
+$btn-wide-padding-x: 1.8rem;
+$btn-wide-padding-x-lg: 2.5rem;
+$btn-wide-padding-x-sm: 1.2rem;
+
+$btn-size: $input-height;
+$btn-size-lg: $input-height-lg;
+$btn-size-sm: $input-height-sm;
+
+@mixin btn-padding($p) {
+	padding-left: $p;
+	padding-right: $p;
+}
+
+@mixin btn-square($size) {
+	width: $size;
+	height: $size;
+	line-height: $size;
+
+	> i {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		vertical-align: middle;
+	}
+}
+
+
+// General
+// --------------------------------------------------
+
+// .hover: force the hover state (works for every variant,
+// since all of them expose their hover colors as --bs-btn-hover-*)
+.btn.hover {
+	color: var(--bs-btn-hover-color);
+	background-color: var(--bs-btn-hover-bg);
+	border-color: var(--bs-btn-hover-border-color);
+}
+
+// Focus ring per variant ($btn-focus-width is 0, so set the ring explicitly).
+// Comes first so the custom variants below can override it.
+@each $color, $value in $theme-colors {
+	.btn-#{$color},
+	.btn-outline-#{$color} {
+		@if $color == "secondary" or $color == "light" {
+			--bs-btn-focus-box-shadow: 0 0 0 0.2rem #{rgba($primary, .15)};
+		}
+		@else {
+			--bs-btn-focus-box-shadow: 0 0 0 0.2rem #{rgba($value, .4)};
+		}
+	}
+}
+
+.btn-secondary {
+	@include button-variant(
+		$btn-secondary-bg, $btn-secondary-border,
+		$hover-background: darken($btn-secondary-bg, 8%),
+		$hover-border: darken($btn-secondary-border, 10%),
+		$active-background: darken($btn-secondary-bg, 10%),
+		$active-border: darken($btn-secondary-border, 12%)
+	);
+}
+
+.btn-light {
+	@include button-variant(
+		$light, $light,
+		$hover-background: $light,
+		$hover-border: rgba(#000, 0.15),
+		$active-background: darken($light, 10%),
+		$active-border: rgba(#000, 0.2)
+	);
+}
+
+.btn-secondary,
+.btn-light {
+	&:focus-visible,
+	&.focus {
+		border-color: rgba(#000, 0.2);
+	}
+}
+
+
+// Make icon font-size 13px in small buttons
+// (looks ugly otherwise)
+// -----------------------------------------------------
+
+.btn-sm > .fa {
+	font-size: 14px;
+}
+
+
+// btn-(outline-)(secondary|light)
+// looks really shitty in BS4, style it decently.
+// -----------------------------------------------------
+
+@if $enable-lightbtn-tweak {
+	// $input-border-color is a CSS var in BS5, so use the BS4 value to darken
+	$lightbtn-border-color: $gray-400;
+
+	.btn-outline-secondary,
+	.btn-outline-light {
+		--bs-btn-color: #{$yiq-text-dark};
+		--bs-btn-border-color: #{$lightbtn-border-color};
+		--bs-btn-hover-border-color: #{darken($lightbtn-border-color, 8%)};
+		--bs-btn-active-bg: #{darken($secondary, 5%)};
+		--bs-btn-active-border-color: #{darken($lightbtn-border-color, 5%)};
+		--bs-btn-disabled-color: #{$yiq-text-dark};
+		--bs-btn-disabled-border-color: #{$lightbtn-border-color};
+	}
+
+	.btn-outline-light {
+		--bs-btn-color: #{$gray-600};
+	}
+}
+
+
+
+// Input groups
+// Light addon buttons without border look shitty
+// -----------------------------------------------------
+
+.input-group > .btn-secondary,
+.input-group > .btn-light {
+	--bs-btn-border-color: #{$input-border-color};
+	--bs-btn-hover-border-color: #{$input-border-color};
+	--bs-btn-active-border-color: #{$input-border-color};
+}
+
+
+// btn-icon, btn-circle
+// --------------------------------------------------
+
+.btn.btn-icon,
+.btn.btn-circle {
+	padding: 0;
+	text-align: center;
+	vertical-align: middle;
+	position: relative;
+	@include btn-square($btn-size);
+
+	&.btn-lg {
+		@include btn-square($btn-size-lg);
+	}
+
+	&.btn-sm {
+		@include btn-square($btn-size-sm);
+	}
+
+	// Move caret to bottom right corner
+	&.dropdown-toggle:after {
+		position: absolute;
+		right: 2px;
+		bottom: 0.4em;
+	}
+}
+
+.btn.btn-circle {
+	border-radius: 50%;
+}
+
+
+// Social buttons
+// --------------------------------------------------
+
+@if $enable-social-buttons {
+    .btn-brand-facebook,
+    .btn-brand-facebook-f {
+        @include button-variant($clr-brand-facebook, $clr-brand-facebook);
+    }
+
+    .btn-brand-twitter {
+        @include button-variant($clr-brand-twitter, $clr-brand-twitter);
+    }
+
+    .btn-brand-youtube {
+        @include button-variant($clr-brand-youtube, $clr-brand-youtube);
+    }
+
+    .btn-brand-pinterest,
+    .btn-brand-pinterest-p {
+        @include button-variant($clr-brand-pinterest, $clr-brand-pinterest);
+    }
+
+    .btn-brand-google-plus,
+    .btn-brand-google-plus-g {
+        @include button-variant($clr-brand-googleplus, $clr-brand-googleplus);
+    }
+
+    .btn-brand-instagram {
+        @include button-variant($clr-brand-instagram, $clr-brand-instagram);
+    }
+
+    .btn-brand-linkedin {
+        @include button-variant($clr-brand-linkedin, $clr-brand-linkedin);
+    }
+
+    .btn-brand-xing {
+        @include button-variant($clr-brand-xing, $clr-brand-xing);
+    }
+}
+
+
+// btn-flat
+// --------------------------------------------------
+
+.btn-flat {
+	--bs-btn-color: #{$yiq-text-dark};
+	--bs-btn-bg: transparent;
+	--bs-btn-border-color: transparent;
+	--bs-btn-box-shadow: none;
+	--bs-btn-disabled-color: #{$yiq-text-dark};
+	--bs-btn-disabled-bg: transparent;
+	--bs-btn-disabled-border-color: transparent;
+	background-image: none;
+}
+
+.btn-flat-light {
+	--bs-btn-color: #{rgba(#fff, 0.8)};
+	--bs-btn-disabled-color: #{rgba(#fff, 0.8)};
+	--bs-btn-hover-border-color: #fff;
+	--bs-btn-active-border-color: #fff;
+	--bs-btn-focus-box-shadow: 0 0 0 2px #{rgba(#fff, .25)};
+}
+
+// btn-clear
+// --------------------------------------------------
+.btn.btn-clear {
+	--bs-btn-color: #{$yiq-text-light};
+	--bs-btn-bg: #{rgba(#fff, 0)};
+	--bs-btn-border-color: #{rgba(#fff, 0.6)};
+	--bs-btn-box-shadow: none;
+	--bs-btn-hover-color: #{$yiq-text-light};
+	--bs-btn-hover-bg: #{rgba(#fff, 0.15)};
+	--bs-btn-hover-border-color: #{rgba(#fff, 0.6)};
+	--bs-btn-focus-box-shadow: 0 0 0 2px #{rgba(#fff, .25)};
+	--bs-btn-active-color: #{$yiq-text-light};
+	--bs-btn-active-bg: #{rgba(#fff, 0.15)};
+	--bs-btn-active-border-color: #fff;
+	--bs-btn-active-shadow: none;
+	--bs-btn-disabled-color: #{$yiq-text-light};
+	--bs-btn-disabled-bg: #{rgba(#fff, 0)};
+	--bs-btn-disabled-border-color: #{rgba(#fff, 0.6)};
+
+	// Focus border differs from hover border, which BS5 reuses for focus
+	&:focus-visible,
+	&.focus {
+		border-color: #fff;
+	}
+}
+
+.btn.btn-clear-dark {
+	--bs-btn-color: #{$yiq-text-dark};
+	--bs-btn-bg: transparent;
+	--bs-btn-border-color: #{rgba(#000, 0.15)};
+	--bs-btn-box-shadow: none;
+	--bs-btn-hover-color: #{darken($yiq-text-dark, 8%)};
+	--bs-btn-hover-bg: #{rgba(#000, 0.06)};
+	--bs-btn-hover-border-color: #{rgba(#000, 0.2)};
+	--bs-btn-focus-box-shadow: 0 0 0 3px #{rgba(#000, .05)};
+	--bs-btn-active-color: #{darken($yiq-text-dark, 8%)};
+	--bs-btn-active-bg: #{rgba(#000, 0.06)};
+	--bs-btn-active-border-color: #{rgba(#000, 0.2)};
+	--bs-btn-active-shadow: inset 0 3px 5px #{rgba(#000, 0.125)};
+	--bs-btn-disabled-color: #{$yiq-text-dark};
+	--bs-btn-disabled-bg: transparent;
+	--bs-btn-disabled-border-color: #{rgba(#000, 0.15)};
+}
+
+// btn-labeled
+// --------------------------------------------------
+.btn.btn-labeled {
+	// $w-md: $input-height-inner * 0.85;
+	// $w-sm: $input-height-inner-sm * 0.85;
+	// $w-lg: $input-height-inner-lg * 0.85;
+	position: relative;
+	// padding-left: $w-md + $input-btn-padding-x;
+
+	> b {
+		position: absolute;
+		display: block;
+		// width: $w-md;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0, .12);
+
+		> i {
+			position: relative;
+			vertical-align: middle;
+			//transform: translate(0, 50%);
+			line-height: $btn-size;
+		}
+	}
+
+	&.btn-lg {
+		// padding-left: $w-lg + $input-btn-padding-x-lg;
+
+		> b {
+			// width: $w-lg;
+
+			> i {
+				line-height: $btn-size-lg;
+			}
+		}
+	}
+
+	&.btn-sm {
+		// padding-left: $w-sm + $input-btn-padding-x-sm;
+
+		> b {
+			// width: $w-sm;
+
+			> i {
+				line-height: $btn-size-sm;
+			}
+		}
+	}
+
+	&.icon-right {
+		padding-left: $input-btn-padding-x;
+		// padding-right: $w-md + $input-btn-padding-x;
+
+		> b {
+			left: auto;
+			right: 0;
+		}
+	}
+}
+
+// btn-animate
+// --------------------------------------------------
+
+.btn.btn-animate {
+	position: relative;
+	overflow: hidden;
+	padding-left: $input-btn-padding-x * 1.5;
+	padding-right: $input-btn-padding-x * 1.5;
+	transition: all 0.2s ease-out;
+
+	> span {
+		display: block;
+		width: 100%;
+		height: 100%;
+		transition: transform 0.2s ease-out;
+		transform: translateX(0);
+
+		> i {
+			position: absolute;
+			display: inline-block;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 1.8em;
+			text-align: left;
+			opacity: 0;
+            line-height: inherit;
+			transition: opacity 0.2s ease-out;
+			transform: translateX(-100%);
+
+			&:before {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+			}
+		}
+	}
+
+	&:hover > span {
+		transform: translateX(10px);
+
+		> i {
+			opacity: 1;
+		}
+	}
+
+	&.btn-lg {
+		padding-left: $input-btn-padding-x-lg * 1.5;
+		padding-right: $input-btn-padding-x-lg * 1.5;
+	}
+
+	&.btn-sm {
+		padding-left: $input-btn-padding-x-sm * 1.5;
+		padding-right: $input-btn-padding-x-sm * 1.5;
+	}
+}
+
+.btn-animate.btn-animate-right {
+	> span > i {
+		left: auto;
+		right: 0;
+		text-align: right;
+		transform: translateX(100%);
+	}
+
+	&:hover > span {
+		transform: translateX(-10px);
+	}
+}
+
+.btn-animate.btn-animate-down {
+	> span {
+		text-align: center;
+	}
+
+	> span > i {
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 100%;
+		text-align: center;
+		vertical-align: middle;
+		transform: translateY(-150%);
+	}
+
+	&:hover > span {
+		transform: translateY(150%);
+	}
+}
+
+.btn-animate.btn-animate-down.btn-lg {
+	> span > i {
+		font-size: 1.5rem;
+		line-height: 1.5rem;
+	}
+}
+
+// btn-to-[danger|primary]
+// --------------------------------------------------
+
+// Looks neutral until hovered, then takes on the variant color
+@mixin button-hybrid-variant($background, $border, $hover-background: darken($background, 7.5%), $hover-border: darken($border, 10%)) {
+	--bs-btn-hover-color: #{color-contrast($hover-background)};
+	--bs-btn-hover-bg: #{$hover-background};
+	--bs-btn-hover-border-color: #{$hover-border};
+	--bs-btn-focus-box-shadow: 0 0 0 0.2rem #{rgba($border, .5)};
+
+	&:hover > i {
+		opacity: 1;
+	}
+}
+
+.btn.btn-to-danger,
+.btn.btn-to-primary {
+	transition: box-shadow .15s ease-in-out;
+}
+
+.btn.btn-to-danger {
+	@include button-hybrid-variant($danger, $danger);
+}
+
+.btn.btn-to-primary {
+	@include button-hybrid-variant($primary, $primary);
+}
+
+// btn-no-border
+// --------------------------------------------------
+.btn-no-border {
+	border-color: transparent !important;
+}
+
+
+// .mf-dropdown (Mobile Friendly dropdown)
+// --------------------------------------------------
+.mf-dropdown {
+	display: inline-block;
+	position: relative;
+
+	.btn {
+		border-radius: 0;
+		position: relative;
+	}
+
+	.btn > em {
+		font-style: normal;
+		font-variant: normal;
+		font-weight: normal;
+		color: $text-muted;
+		font-size: $font-size-sm;
+		font-size: 0.85em; // make it smaller
+	}
+
+	.btn > em > span {
+		font-weight: $font-weight-medium;
+		font-size: 1.166666em; // make it regular again
+		color: $body-color;
+	}
+
+	.btn.has-caret {
+		text-align: left;
+		padding-right: $input-btn-padding-x * 2;
+
+		&.btn-sm {
+			padding-right: $input-btn-padding-x-sm * 2;
+		}
+
+		&.btn-lg {
+			padding-right: $input-btn-padding-x-lg * 2;
+		}
+
+		> em,
+		> span {
+			display: block;
+			margin-bottom: 1px; // equalizes button heights
+			@include text-truncate();
+		}
+	}
+
+	.btn.has-caret:after {
+		@include fontawesome("\f0d7");
+		position: absolute;
+		display: block;
+		right: $input-btn-padding-x;
+		line-height: 1;
+		top: 50%;
+		transform: translate3d(50%, -50%, 0);
+	}
+
+	.btn-sm.has-caret:after {
+		right: $input-btn-padding-x-sm;
+	}
+
+	.btn-lg.has-caret:after {
+		right: $input-btn-padding-x-lg;
+	}
+
+	select {
+		position: absolute;
+		opacity: 0;
+		left: 0;
+		width: 100%;
+		top: 0;
+		bottom: 0;
+		cursor: pointer;
+	}
+}
+
+
+// 3d Buttons (colorized drop shadows)
+// -----------------------------------------------------
+
+.btn-3d {
+    transition-property: transform, box-shadow, color, background-color, border-color, opacity;
+    transition-timing-function: cubic-bezier(0.25, 1, 0.33, 1);
+    transition-duration: .35s;
+    
+    --shadow-color-rgb: 0,0,0;
+    --shadow-color-intensity: 1;
+    --box-shadow: 0 1px 1px rgba(var(--shadow-color-rgb), calc(var(--shadow-color-intensity) * 0.07)),
+                0 2px 4px rgba(var(--shadow-color-rgb), calc(var(--shadow-color-intensity) * 0.1)),
+                0 4px 8px rgba(var(--shadow-color-rgb), calc(var(--shadow-color-intensity) * 0.08));
+
+    // NORMAL
+    box-shadow: var(--box-shadow) !important;
+
+    // ACTIVE
+    &:hover, &.hover,
+    &:focus, &.focus {
+        transform: translateY(-3px);
+        --box-shadow: 0 1px 1px rgba(var(--shadow-color-rgb), calc(var(--shadow-color-intensity) * 0.08)),
+                    0 6px 10px -2px rgba(var(--shadow-color-rgb), calc(var(--shadow-color-intensity) * 0.12)),
+                    0 12px 24px -8px rgba(var(--shadow-color-rgb), calc(var(--shadow-color-intensity) * 0.12));
+    }
+
+    // DISABLED
+    &:disabled, 
+    &.disabled {
+        box-shadow: none !important;  
+    }
+
+    // PRESSED
+    &:active, &:active:focus,
+    &.active, &.active:focus,
+    .show > &.dropdown-toggle, 
+    .show > &.dropdown-toggle:focus {
+        transform: translateY(1px);
+        --box-shadow: 0 1px 2px rgba(var(--shadow-color-rgb), calc(var(--shadow-color-intensity) * 0.13)), 
+                    0 2px 4px rgba(var(--shadow-color-rgb), calc(var(--shadow-color-intensity) * 0.12));
+    }
+}
+
+@each $color, $value in $theme-colors {
+	.btn-3d.btn-#{$color},
+    .btn-3d.btn-outline-#{$color} {  
+        @if $color != "secondary" and $color != "light" {
+            $c: mix($value, #000, 50%);
+            --shadow-color-rgb: #{red($c)}, #{green($c)}, #{blue($c)};
+            --shadow-color-intensity: 1.8;
+        }
+        @else {
+            border-color: $value !important;
+        }
+
+        @if $color == 'secondary' {
+            // ACTIVE
+            &:hover, &.hover,
+            &:focus, &.focus {
+                background-color: #fff;
+            }        
+
+            // PRESSED
+            &:active, &:active:focus,
+            &.active, &.active:focus,
+            .show > &.dropdown-toggle, 
+            .show > &.dropdown-toggle:focus {
+                background-color: $gray-100;
+                border-color: $gray-100;
+            }
+        }
+    }
+}
