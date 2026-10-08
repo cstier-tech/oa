@@ -1,11 +1,11 @@
 import React from 'react'
 
-export interface IconProps {
+export interface IconProps extends React.HTMLAttributes<HTMLElement> {
     name: string
     variant?: "solid" | "regular" | "brands"
-    className?: string
     ref?: React.Ref<HTMLElement>
 }
+
 
 export default function Icon({ name, variant = 'solid', className = '', ...props }: IconProps) {
     return (

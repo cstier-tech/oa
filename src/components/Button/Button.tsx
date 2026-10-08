@@ -3,6 +3,8 @@ import BSButton, { type ButtonProps as BSButtonProps } from 'react-bootstrap/But
 import Icon from '../Icon';
 
 export interface ButtonProps extends BSButtonProps {
+    dataToggle?: string
+    dataPlacement?: string
     ref?: React.Ref<HTMLDivElement>
 }
 
