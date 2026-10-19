@@ -400,11 +400,12 @@ function Ne({ children: e, ...t }) {
 }
 //#endregion
 //#region src/components/Tabs/Tabs.tsx
-function Pe({ tabStyle: e = "standard", children: t, ...n }) {
+function Pe({ tabStyle: e = "standard", className: t, children: n, ...r }) {
+	let i = [e === "line" && "nav-tabs-line", t].filter(Boolean).join(" ");
 	return /* @__PURE__ */ s(W, {
-		className: e === "line" ? "nav-tabs-line" : void 0,
-		...n,
-		children: t
+		className: i || void 0,
+		...r,
+		children: n
 	});
 }
 function Fe({ children: e, ...t }) {

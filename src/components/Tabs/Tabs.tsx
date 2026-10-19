@@ -10,9 +10,11 @@ export interface TabsProps extends BSTabsProps {
     tabStyle?: 'standard' | 'line'
 }
 
-export function Tabs({tabStyle = 'standard', children, ...props}: TabsProps) {
+export function Tabs({tabStyle = 'standard', className, children, ...props}: TabsProps) {
+    const classes = [tabStyle === 'line' && 'nav-tabs-line', className].filter(Boolean).join(' ')
+
     return (
-        <BSTabs className={tabStyle === 'line' ? 'nav-tabs-line' : undefined} {...props}>
+        <BSTabs className={classes || undefined} {...props}>
             {children}
         </BSTabs>
     )
