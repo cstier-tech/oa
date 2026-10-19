@@ -19,7 +19,7 @@ export interface AccordionProps extends BSAccordionProps {
 export function Accordion({ children, ref, items, ...props }: AccordionProps) {
     return (
         <BSAccordion ref={ref} {...props} flush>
-            {items.map((item, i) => (
+            {items.map((item) => (
                 <AccordionItem eventKey={item.id} key={item.id}>
                     <AccordionHeader>{item.label}</AccordionHeader>
                     <AccordionBody>{item.body}</AccordionBody>

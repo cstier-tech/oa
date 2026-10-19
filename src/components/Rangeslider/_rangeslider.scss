@@ -14,7 +14,7 @@
     justify-content: center;
 
     .form-control-range {
-        height: $custom-range-thumb-height;
+        height: $form-range-thumb-height;
 
         &::-ms-thumb {
             padding: 0;
@@ -80,7 +80,7 @@
         width: 1px;
         height: 5px;
         border-radius: 1px;
-        background-color: $custom-range-track-bg;
+        background-color: $form-range-track-bg;
         white-space: nowrap;
         margin-bottom: 12px;
 
@@ -107,11 +107,11 @@
         z-index: 1;
 
         &[data-placement=right] {
-            transform: translateX($custom-range-thumb-width * 1.7);
+            transform: translateX($form-range-thumb-width * 1.7);
         }
 
         &[data-placement=left] {
-            transform: translateX(calc(-100% - #{$custom-range-thumb-width * 1.7}));
+            transform: translateX(calc(-100% - #{$form-range-thumb-width * 1.7}));
         }
 
         &:before {
@@ -151,10 +151,10 @@
 [dir=rtl] .range-slider .range-value {
 
     &[data-placement=right] {
-        transform: translateX(calc(#{$custom-range-thumb-width * 1.7} + #{$custom-range-thumb-width * 2}));
+        transform: translateX(calc(#{$form-range-thumb-width * 1.7} + #{$form-range-thumb-width * 2}));
     }
 
     &[data-placement=left] {
-        transform: translateX(calc(#{$custom-range-thumb-width * -1.7} + #{$custom-range-thumb-width / 2}));
+        transform: translateX(calc(#{$form-range-thumb-width * -1.7} + #{$form-range-thumb-width / 2}));
     }
 }

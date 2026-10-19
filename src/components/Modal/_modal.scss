@@ -99,7 +99,7 @@ $modal-transition-timing: ease-out;
 	}
 
 	.modal[data-backdrop=true] > & {
-		$c: color-yiq($modal-backdrop-bg);
+		$c: color-contrast($modal-backdrop-bg);
 		color: mix($c, $modal-backdrop-bg, 70%);
 		&:hover { color: $c; }
 	}

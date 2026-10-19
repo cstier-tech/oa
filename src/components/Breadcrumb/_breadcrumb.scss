@@ -18,7 +18,7 @@
 
 .breadcrumb-item:after {
     display: inline-block; // Suppress underlining of the separator in modern browsers
-    padding: 0 $breadcrumb-item-padding;
+    padding: 0 $breadcrumb-item-padding-x;
     color: $breadcrumb-divider-color;
     content: $breadcrumb-divider;
 }

@@ -1,27 +1,46 @@
 {
   "name": "oa",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/oa.js",
+  "module": "./dist/oa.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/oa.js"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && tsc -p tsconfig.build.json",
     "lint": "oxlint",
     "preview": "vite preview"
   },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^7.3.1",
-    "bootstrap": "^5.3.8",
-    "react": "^19.2.8",
-    "react-bootstrap": "^2.10.10",
-    "react-dom": "^19.2.8"
+    "react-bootstrap": "^2.10.10"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^7.3.1",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
+    "bootstrap": "^5.3.8",
     "oxlint": "^1.81.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "sass": "^1.105.1",
     "typescript": "~6.0.2",
     "vite": "^8.3.0"

@@ -66,3 +66,17 @@ $theme-colors: map-merge($theme-colors, (
 @import '../components/Button/buttons';
 @import '../components/Accordion/accordion';
 @import '../components/Card/card';
+@import '../components/Artlist/artlist';
+@import '../components/Block/block';
+@import '../components/Breadcrumb/breadcrumb';
+@import '../components/Dropdown/dropdown';
+@import '../components/Form/forms';
+@import '../components/Modal/modal';
+@import '../components/Pagination/pagination';
+@import '../components/Product/product';
+@import '../components/Rangeslider/rangeslider';
+@import '../components/SearchBar/search';
+@import '../components/Switch/switch';
+@import '../components/Tabs/nav';
+@import '../components/Tabs/nav-collapsible';
+@import '../components/TextExpander/text-expander';
