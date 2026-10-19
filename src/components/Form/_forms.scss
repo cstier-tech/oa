@@ -5,8 +5,8 @@
 // Forms
 // ------------------------------------------------------
 
-input, 
-textarea, 
+input,
+textarea,
 select {
     // Overwrite UserAgent stylesheet (400)
     font-weight: $font-weight-normal;
@@ -15,7 +15,7 @@ select {
 fieldset.content-group {
     margin-bottom: 2rem;
 
-    > legend {
+    >legend {
         position: relative;
         font-size: $h5-font-size;
         font-weight: $font-weight-normal;
@@ -30,20 +30,22 @@ fieldset.content-group {
             left: 0;
             top: 50%;
             height: 1px;
-            background: rgba(0,0,0, 0.12);
+            background: rgba(0, 0, 0, 0.12);
             z-index: 0;
         }
 
-        > span {
+        >span {
             position: relative;
             display: inline-block;
-            @if alpha($body-bg) == 0 {
+
+            @if alpha($body-bg)==0 {
                 background: $site-bg;
             }
+
             @else {
                 background: $body-bg;
             }
-            
+
             padding-right: 1rem;
             z-index: 1;
         }
@@ -51,10 +53,10 @@ fieldset.content-group {
 }
 
 .form-group label:not(.form-check-label):not(.custom-control-label) {
-	font-weight: $font-weight-medium;
+    font-weight: $font-weight-medium;
 }
 
-.required > label:after {
+.required>label:after {
     content: ' *';
 }
 
@@ -67,23 +69,23 @@ fieldset.content-group {
 // ------------------------------------------------------
 
 .has-icon {
-	position: relative;
-	display: flex;
+    position: relative;
+    display: flex;
 
-	.form-control {
-		position: relative;
-		z-index: 2;
-	}
+    .form-control {
+        position: relative;
+        z-index: 2;
+    }
 
-	.input-group-icon {
-		position: absolute;
-		left: 0;
-		z-index: 10;
-		width: $input-height;
-		height: 100%;
-		line-height: $input-height;
-		text-align: center;
-		vertical-align: middle;
+    .input-group-icon {
+        position: absolute;
+        left: 0;
+        z-index: 10;
+        width: $input-height;
+        height: 100%;
+        line-height: $input-height;
+        text-align: center;
+        vertical-align: middle;
 
         :before {
             position: absolute;
@@ -91,81 +93,81 @@ fieldset.content-group {
             top: 50%;
             transform: translate(-50%, -50%);
         }
-	}
+    }
 
-	&.has-icon-right .input-group-icon {
-		left: auto;
-		right: 0;
-	}
+    &.has-icon-right .input-group-icon {
+        left: auto;
+        right: 0;
+    }
 
-	&.input-group-lg .input-group-icon {
-		width: $input-height-lg;
-		height: $input-height-lg;
-		line-height: $input-height-lg;
-		font-size: $font-size-lg;
-	}
+    &.input-group-lg .input-group-icon {
+        width: $input-height-lg;
+        height: $input-height-lg;
+        line-height: $input-height-lg;
+        font-size: $font-size-lg;
+    }
 
-	&.input-group-sm .input-group-icon {
-		width: $input-height-sm;
-		height: $input-height-sm;
-		line-height: $input-height-sm;
-		font-size: $font-size-sm;
-	}
+    &.input-group-sm .input-group-icon {
+        width: $input-height-sm;
+        height: $input-height-sm;
+        line-height: $input-height-sm;
+        font-size: $font-size-sm;
+    }
 
-	&:not(.has-icon-right) {
-		.form-control {
-			padding-left: $input-height;
-		}
+    &:not(.has-icon-right) {
+        .form-control {
+            padding-left: $input-height;
+        }
 
-		&.input-group-lg .form-control {
-			padding-left: $input-height-lg;
-		}
+        &.input-group-lg .form-control {
+            padding-left: $input-height-lg;
+        }
 
-		&.input-group-sm .form-control {
-			padding-left: $input-height-sm;
-		}
-	}
+        &.input-group-sm .form-control {
+            padding-left: $input-height-sm;
+        }
+    }
 
-	&.has-icon-right {
-		.form-control {
-			padding-right: $input-height;
-		}
+    &.has-icon-right {
+        .form-control {
+            padding-right: $input-height;
+        }
 
-		&.input-group-lg .form-control {
-			padding-right: $input-height-lg;
-		}
+        &.input-group-lg .form-control {
+            padding-right: $input-height-lg;
+        }
 
-		&.input-group-sm .form-control {
-			padding-right: $input-height-sm;
-		}
-	}
+        &.input-group-sm .form-control {
+            padding-right: $input-height-sm;
+        }
+    }
 }
 
 
 // Checkbox & Radio tweaks
 // ------------------------------------------------------
 
-.radio input[type="radio"], 
-.radio-inline input[type="radio"], 
-.checkbox input[type="checkbox"], 
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
     margin-right: 0.25rem;
 }
 
 .wkit.touchevents .form-check {
-	@if $font-size-base < 1 rem {
+    @if $font-size-base < 1 rem {
         // Fix Chrome mobile check/radio alignment and padding issues:
         // increase spacing from 1.25rem to 1.5rem
-		padding-left: 1.5rem;
-	
-		.form-check-input {
-			margin-left: -1.5rem;
-		}
-	
-		.form-check-label {
-			padding-top: 0.2rem;
-		}
-	}
+        padding-left: 1.5rem;
+
+        .form-check-input {
+            margin-left: -1.5rem;
+        }
+
+        .form-check-label {
+            padding-top: 0.2rem;
+        }
+    }
 }
 
 
@@ -177,8 +179,13 @@ fieldset.content-group {
     -webkit-appearance: none;
     -moz-appearance: none;
 
-    &::-webkit-slider-thumb { -webkit-appearance: none; }
-    &::-moz-range-thumb     { -moz-appearance: none; }
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+    }
+
+    &::-moz-range-thumb {
+        -moz-appearance: none;
+    }
 }
 
 
@@ -189,33 +196,33 @@ fieldset.content-group {
 .validation-summary-errors {
     @extend .alert;
 
-    > *:last-child {
+    >*:last-child {
         margin-bottom: 0;
     }
 }
 
 .validation-summary-valid {
     display: none;
-    @extend .alert-success; 
+    @extend .alert-success;
 }
 
 .validation-summary-errors {
-    @extend .alert-danger; 
+    @extend .alert-danger;
 }
 
 .field-validation-error {
-	display: block;
-	color: $form-feedback-invalid-color;
-	font-size: $font-size-sm;
-	margin-top: 0.25rem;
-	width: 100%;
+    display: block;
+    color: $form-feedback-invalid-color;
+    font-size: $font-size-sm;
+    margin-top: 0.25rem;
+    width: 100%;
 }
 
 .is-valid,
 .is-invalid {
-	&:focus {
-		box-shadow: none !important;
-	}
+    &:focus {
+        box-shadow: none !important;
+    }
 }
 
 
@@ -224,5 +231,11 @@ fieldset.content-group {
 // ------------------------------------------------------
 
 .required-text-input {
-	display: none;
+    display: none;
+}
+
+
+
+.form-group {
+    margin-bottom: 1rem;
 }

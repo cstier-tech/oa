@@ -1,9 +1,22 @@
+@use "sass:math";
 @import "bootstrap/scss/functions";
 
 // match bs4 yiq color contrast
 @function color-contrast($background, $color-contrast-dark: $yiq-text-dark, $color-contrast-light: $yiq-text-light, $min-contrast-ratio: null) {
   $yiq: divide((red($background) * 299) + (green($background) * 587) + (blue($background) * 114), 1000);
   @return if($yiq >= $yiq-contrasted-threshold, $color-contrast-dark, $color-contrast-light);
+}
+
+// bs4 theme-color-level (removed in bs5): positive levels darken, negative lighten
+@function theme-color-level($color-name: "primary", $level: 0) {
+  $color: map-get($theme-colors, $color-name);
+  $color-base: if($level > 0, $black, $white);
+  $level: math.abs($level);
+  // callers may compute $level from lightness(), which carries a % unit
+  @if unit($level) == "%" {
+    $level: math.div($level, 1%);
+  }
+  @return mix($color-base, $color, $level * $theme-color-interval);
 }
 
 // Variable overrides: must come BEFORE bootstrap/scss/variables,
@@ -60,6 +73,9 @@ $theme-colors: map-merge($theme-colors, (
 
 @import "./fa";
 @import "./mixins";
+@import "./typo";
+@import "./bg";
+@import "./utils";
 
 // Bootstrap 4 alias: .no-gutters behaves like Bootstrap 5's .g-0
 .no-gutters {
