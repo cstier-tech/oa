@@ -1,8 +1,11 @@
 import { type TabProps } from 'react-bootstrap/Tab';
-import { type TabsProps } from 'react-bootstrap/Tabs';
+import { type TabsProps as BSTabsProps } from 'react-bootstrap/Tabs';
 export type TabItem = {
     id: string;
     label: string;
 };
-export declare function Tabs({ children, ...props }: TabsProps): import("react").JSX.Element;
+export interface TabsProps extends BSTabsProps {
+    tabStyle?: 'standard' | 'line';
+}
+export declare function Tabs({ tabStyle, children, ...props }: TabsProps): import("react").JSX.Element;
 export declare function Tab({ children, ...props }: TabProps): import("react").JSX.Element;

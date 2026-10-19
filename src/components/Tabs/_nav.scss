@@ -116,7 +116,7 @@
 	.nav-item.open .nav-link:focus:before {
 		left: 0;
 		right: 0;
-		background: theme-color("warning");
+		background: $warning;
 	}
 }
 
@@ -171,7 +171,7 @@
 		.nav-item.open .nav-link:focus {
 			border-top-color: $nav-tabs-border-color;
 			border-bottom-color: $nav-tabs-border-color;
-			border-left-color: theme-color("warning");
+			border-left-color: $warning;
 		}
 	}
 }

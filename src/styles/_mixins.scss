@@ -131,7 +131,7 @@
     content: $content;
 }
 
-@mixin active-list-item($size: 4px, $color: theme-color("warning")) {
+@mixin active-list-item($size: 4px, $color: $warning) {
     position: absolute;
     display: block;
     content: ' ';

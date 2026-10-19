@@ -261,6 +261,7 @@ function ge({ children: e, ...t }) {
 }
 function _e({ children: e, ...t }) {
 	return /* @__PURE__ */ s(S, {
+		className: "form-group",
 		...t,
 		children: e
 	});
@@ -399,10 +400,11 @@ function Ne({ children: e, ...t }) {
 }
 //#endregion
 //#region src/components/Tabs/Tabs.tsx
-function Pe({ children: e, ...t }) {
+function Pe({ tabStyle: e = "standard", children: t, ...n }) {
 	return /* @__PURE__ */ s(W, {
-		...t,
-		children: e
+		className: e === "line" ? "nav-tabs-line" : void 0,
+		...n,
+		children: t
 	});
 }
 function Fe({ children: e, ...t }) {

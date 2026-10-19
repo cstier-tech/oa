@@ -23,7 +23,7 @@ export function Form({  children, ...props }: FormProps) {
 
 export function FormGroup({ children, ...props }: FormGroupProps) {
     return (
-        <BSFormGroup {...props}>
+        <BSFormGroup className='form-group' {...props}>
             {children}
         </BSFormGroup>
     )
