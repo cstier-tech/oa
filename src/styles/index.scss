@@ -62,7 +62,6 @@ $theme-colors: map-merge($theme-colors, (
 @import "./mixins";
 
 // Bootstrap 4 alias: .no-gutters behaves like Bootstrap 5's .g-0
-// (.g-0 itself isn't generated because $spacers is overridden without a 0 key)
 .no-gutters {
     --#{$prefix}gutter-x: 0;
     --#{$prefix}gutter-y: 0;

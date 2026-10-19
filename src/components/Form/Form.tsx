@@ -21,9 +21,11 @@ export function Form({  children, ...props }: FormProps) {
     )
 }
 
-export function FormGroup({ children, ...props }: FormGroupProps) {
+export function FormGroup({ className, children, ...props }: FormGroupProps) {
+    const classes = ['form-group', className].filter(Boolean).join(' ')
+
     return (
-        <BSFormGroup className='form-group' {...props}>
+        <BSFormGroup className={classes} {...props}>
             {children}
         </BSFormGroup>
     )

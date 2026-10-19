@@ -113,8 +113,16 @@ $yiq-text-dark:				$gray-900;
 $yiq-text-light:			#fff;
 
 $spacer: 1.25rem;
-$spacers: ( 
-	6: ($spacer * 4.5)
+// Full map required: Bootstrap 5's $spacers is a plain !default (no map-merge
+// like BS4), so defining only extra keys here would drop 0–5.
+$spacers: (
+	0: 0,
+	1: $spacer * .25,
+	2: $spacer * .5,
+	3: $spacer,
+	4: $spacer * 1.5,
+	5: $spacer * 3,
+	6: $spacer * 4.5
 );
 
 // $theme-colors additions live in index.scss (they need Bootstrap's map,

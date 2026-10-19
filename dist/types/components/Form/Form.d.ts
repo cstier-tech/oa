@@ -11,7 +11,7 @@ import { type InputGroupProps } from 'react-bootstrap/InputGroup';
 import { type FormTextProps } from 'react-bootstrap/FormText';
 import { type FeedbackProps } from 'react-bootstrap/Feedback';
 export declare function Form({ children, ...props }: FormProps): import("react").JSX.Element;
-export declare function FormGroup({ children, ...props }: FormGroupProps): import("react").JSX.Element;
+export declare function FormGroup({ className, children, ...props }: FormGroupProps): import("react").JSX.Element;
 export declare function FormLabel({ children, ...props }: FormLabelProps): import("react").JSX.Element;
 export declare function FormControl({ children, ...props }: FormControlProps): import("react").JSX.Element;
 export declare function FormText({ children, ...props }: FormTextProps): import("react").JSX.Element;

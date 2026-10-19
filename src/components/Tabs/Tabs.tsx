@@ -27,4 +27,3 @@ export function Tab({children, ...props}: TabProps) {
         </BSTab>
     )
 }
-
