@@ -4,5 +4,5 @@ export type TabItem = {
     id: string;
     label: string;
 };
-export declare function Tabs({ children, ...props }: TabsProps): void;
-export declare function Tab({ children, ...props }: TabProps): void;
+export declare function Tabs({ children, ...props }: TabsProps): import("react").JSX.Element;
+export declare function Tab({ children, ...props }: TabProps): import("react").JSX.Element;

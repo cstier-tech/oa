@@ -7,14 +7,18 @@ export type TabItem = {
 }
 
 export function Tabs({children, ...props}: TabsProps) {
-    <BSTabs {...props}>
-        {children}
-    </BSTabs>
+    return (
+        <BSTabs {...props}>
+            {children}
+        </BSTabs>
+    )
 }
 
 export function Tab({children, ...props}: TabProps) {
-    <BSTab {...props}>
-        {children}
-    </BSTab>
+    return (
+        <BSTab {...props}>
+            {children}
+        </BSTab>
+    )
 }
 

@@ -1,0 +1,130 @@
+
+.costeps {
+    position: relative;
+	margin-top: 2rem;  
+    margin-bottom: 1rem;
+    flex-wrap: nowrap;
+}
+
+.costep,
+.costep-link,
+.costep-icon {
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.costep {
+    text-align: center;
+    z-index: 1;
+
+    &:before,
+    &:after {
+        display: block;
+        content: ' ';
+        position: absolute;
+        height: 2px;
+        background-color: $costep-border;
+        z-index: 0;
+        top: 5px;
+    }
+
+    &:before {
+        left: 0;
+        right: 50%;
+    }
+
+    &:after {
+        left: 50%;
+        right: 0;
+    }
+
+    &:first-child:before,
+    &:last-child:after {
+        display: none;
+    }
+}
+
+.costep-link {
+    color: inherit;
+    text-decoration: none !important;
+}
+
+.costep-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid $costep-border;
+    background-color: $costep-bg;
+    color: $costep-color;
+    margin: 0 auto;
+
+    // The dot is too small for an icon on xs; shown from sm up
+    > * {
+        display: none;
+    }
+}
+
+.costep-label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 85%;
+    display: block;
+    padding: 0.5rem 3px 0 3px;
+    color: $costep-label-color;
+}
+
+.costep.visited {
+    &:before, &:after {
+        background-color: $costep-visited-border;
+    }
+    .costep-icon {
+        border-color: $costep-visited-border;
+        background-color: $costep-visited-bg;
+        color: $costep-visited-color;
+    }
+    .costep-label {
+        color: $costep-visited-label-color;
+    }
+}
+
+.costep.active {
+    &:before {
+        background-color: $costep-active-border;
+    }
+    .costep-icon {
+        border-color: $costep-active-border;
+        background-color: $costep-active-bg;
+        color: $costep-active-color;
+    }
+    .costep-label {
+        font-weight: $font-weight-bold;
+        color: $costep-active-label-color;
+    }
+}
+
+@include media-breakpoint-up(sm) {
+    .costep:before,
+    .costep:after {
+        top: 24px;
+    }
+
+    .costep-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+
+        > * {
+            display: inline-block;
+        }
+    }
+
+    .costep-label {
+        font-size: 90%;
+    }
+}
+
