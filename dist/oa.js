@@ -9,15 +9,16 @@ import u from "react-bootstrap/Toast";
 import d from "react-bootstrap/Button";
 import f from "react-bootstrap/Card";
 import p from "react-bootstrap/CardBody";
-import m from "react-bootstrap/CardFooter";
-import h from "react-bootstrap/CardHeader";
-import g from "react-bootstrap/CardImg";
-import _ from "react-bootstrap/CardImgOverlay";
-import v from "react-bootstrap/CardLink";
-import ee from "react-bootstrap/CardSubtitle";
-import te from "react-bootstrap/CardText";
-import y from "react-bootstrap/CardTitle";
-import b from "react-bootstrap/CardGroup";
+import ee from "react-bootstrap/CardFooter";
+import te from "react-bootstrap/CardHeader";
+import ne from "react-bootstrap/CardImg";
+import m from "react-bootstrap/CardImgOverlay";
+import h from "react-bootstrap/CardLink";
+import g from "react-bootstrap/CardSubtitle";
+import _ from "react-bootstrap/CardText";
+import v from "react-bootstrap/CardTitle";
+import y from "react-bootstrap/CardGroup";
+import b from "react-bootstrap/Collapse";
 import x from "react-bootstrap/Form";
 import S from "react-bootstrap/FormGroup";
 import C from "react-bootstrap/FormLabel";
@@ -79,7 +80,7 @@ function Q({ name: e, variant: t = "solid", className: n = "", ...r }) {
 }
 //#endregion
 //#region src/components/AlertToast/AlertToast.tsx
-function ne({ variant: e, ref: t, children: n, ...r }) {
+function re({ variant: e, ref: t, children: n, ...r }) {
 	return /* @__PURE__ */ s(u, {
 		ref: t,
 		...r,
@@ -107,7 +108,7 @@ function ne({ variant: e, ref: t, children: n, ...r }) {
 }
 //#endregion
 //#region src/components/Badge/Badge.tsx
-function re({ children: e, className: t = "", variant: n, ref: r, ...i }) {
+function ie({ children: e, className: t = "", variant: n, ref: r, ...i }) {
 	return /* @__PURE__ */ s("span", {
 		ref: r,
 		className: `badge badge-${n} ${t}`,
@@ -117,14 +118,14 @@ function re({ children: e, className: t = "", variant: n, ref: r, ...i }) {
 }
 //#endregion
 //#region src/components/Button/Button.tsx
-function ie({ children: e, ref: t, ...n }) {
+function ae({ children: e, ref: t, ...n }) {
 	return /* @__PURE__ */ s(d, {
 		ref: t,
 		...n,
 		children: e
 	});
 }
-function ae({ icon: e, ref: t, className: n = "", ...r }) {
+function $({ icon: e, ref: t, className: n = "", ...r }) {
 	return /* @__PURE__ */ s(d, {
 		className: `btn-icon ${n}`,
 		ref: t,
@@ -157,21 +158,21 @@ function ce({ ref: e, children: t, ...n }) {
 	});
 }
 function le({ ref: e, children: t, ...n }) {
-	return /* @__PURE__ */ s(m, {
+	return /* @__PURE__ */ s(ee, {
 		ref: e,
 		...n,
 		children: t
 	});
 }
 function ue({ ref: e, children: t, ...n }) {
-	return /* @__PURE__ */ s(h, {
+	return /* @__PURE__ */ s(te, {
 		ref: e,
 		...n,
 		children: t
 	});
 }
 function de({ ref: e, variant: t, src: n, ...r }) {
-	return /* @__PURE__ */ s(g, {
+	return /* @__PURE__ */ s(ne, {
 		variant: t,
 		src: n,
 		ref: e,
@@ -179,14 +180,14 @@ function de({ ref: e, variant: t, src: n, ...r }) {
 	});
 }
 function fe({ ref: e, children: t, ...n }) {
-	return /* @__PURE__ */ s(_, {
+	return /* @__PURE__ */ s(m, {
 		ref: e,
 		...n,
 		children: t
 	});
 }
 function pe({ ref: e, children: t, href: n, ...r }) {
-	return /* @__PURE__ */ s(v, {
+	return /* @__PURE__ */ s(h, {
 		href: n,
 		ref: e,
 		...r,
@@ -194,36 +195,45 @@ function pe({ ref: e, children: t, href: n, ...r }) {
 	});
 }
 function me({ ref: e, children: t, ...n }) {
-	return /* @__PURE__ */ s(te, {
+	return /* @__PURE__ */ s(_, {
 		ref: e,
 		...n,
 		children: t
 	});
 }
 function he({ ref: e, children: t, ...n }) {
-	return /* @__PURE__ */ s(ee, {
+	return /* @__PURE__ */ s(g, {
 		ref: e,
 		...n,
 		children: t
 	});
 }
 function ge({ ref: e, children: t, ...n }) {
-	return /* @__PURE__ */ s(y, {
+	return /* @__PURE__ */ s(v, {
 		ref: e,
 		...n,
 		children: t
 	});
 }
 function _e({ ref: e, children: t, ...n }) {
-	return /* @__PURE__ */ s(b, {
+	return /* @__PURE__ */ s(y, {
 		ref: e,
 		...n,
 		children: t
 	});
 }
 //#endregion
+//#region src/components/Collapse/Collapse.tsx
+function ve({ children: e, ...t }) {
+	return /* @__PURE__ */ s(b, {
+		dimension: "height",
+		...t,
+		children: e
+	});
+}
+//#endregion
 //#region src/components/Costep/Costep.tsx
-function ve({ children: e, className: t = "", ref: n, ...r }) {
+function ye({ children: e, className: t = "", ref: n, ...r }) {
 	return /* @__PURE__ */ s("div", {
 		ref: n,
 		className: `costeps row no-gutters${t}`,
@@ -231,7 +241,7 @@ function ve({ children: e, className: t = "", ref: n, ...r }) {
 		children: e
 	});
 }
-function ye({ label: e, icon: t, status: n = "inactive", step: r, href: i, onClick: a, colClassName: o = "col-2", className: l = "", ref: u, ...d }) {
+function be({ label: e, icon: t, status: n = "inactive", step: r, href: i, onClick: a, colClassName: o = "col-2", className: l = "", ref: u, ...d }) {
 	let f = n === "inactive";
 	return /* @__PURE__ */ s("div", {
 		ref: u,
@@ -257,13 +267,13 @@ function ye({ label: e, icon: t, status: n = "inactive", step: r, href: i, onCli
 }
 //#endregion
 //#region src/components/Form/Form.tsx
-function be({ children: e, ...t }) {
+function xe({ children: e, ...t }) {
 	return /* @__PURE__ */ s(x, {
 		...t,
 		children: e
 	});
 }
-function xe({ className: e, children: t, ...n }) {
+function Se({ className: e, children: t, ...n }) {
 	let r = ["form-group", e].filter(Boolean).join(" ");
 	return /* @__PURE__ */ s(S, {
 		className: r,
@@ -271,61 +281,61 @@ function xe({ className: e, children: t, ...n }) {
 		children: t
 	});
 }
-function Se({ children: e, ...t }) {
+function Ce({ children: e, ...t }) {
 	return /* @__PURE__ */ s(C, {
 		...t,
 		children: e
 	});
 }
-function Ce({ children: e, ...t }) {
+function we({ children: e, ...t }) {
 	return /* @__PURE__ */ s(w, {
 		...t,
 		children: e
 	});
 }
-function we({ children: e, ...t }) {
+function Te({ children: e, ...t }) {
 	return /* @__PURE__ */ s(j, {
 		...t,
 		children: e
 	});
 }
-function Te({ children: e, ...t }) {
+function Ee({ children: e, ...t }) {
 	return /* @__PURE__ */ s(T, {
 		...t,
 		children: e
 	});
 }
-function Ee({ children: e, ...t }) {
+function De({ children: e, ...t }) {
 	return /* @__PURE__ */ s(E, {
 		...t,
 		children: e
 	});
 }
-function De({ children: e, ...t }) {
+function Oe({ children: e, ...t }) {
 	return /* @__PURE__ */ s(D, {
 		...t,
 		children: e
 	});
 }
-function Oe({ children: e, ...t }) {
+function ke({ children: e, ...t }) {
 	return /* @__PURE__ */ s(O, {
 		...t,
 		children: e
 	});
 }
-function ke({ children: e, ...t }) {
+function Ae({ children: e, ...t }) {
 	return /* @__PURE__ */ s(k, {
 		...t,
 		children: e
 	});
 }
-function Ae({ children: e, ...t }) {
+function je({ children: e, ...t }) {
 	return /* @__PURE__ */ s(A, {
 		...t,
 		children: e
 	});
 }
-function je({ children: e, ...t }) {
+function Me({ children: e, ...t }) {
 	return /* @__PURE__ */ s(M, {
 		...t,
 		children: e
@@ -333,13 +343,13 @@ function je({ children: e, ...t }) {
 }
 //#endregion
 //#region src/components/ListGroup/ListGroup.tsx
-function Me({ children: e, ...t }) {
+function Ne({ children: e, ...t }) {
 	return /* @__PURE__ */ s(N, {
 		...t,
 		children: e
 	});
 }
-function Ne({ children: e, ...t }) {
+function Pe({ children: e, ...t }) {
 	return /* @__PURE__ */ s(P, {
 		...t,
 		children: e
@@ -347,35 +357,35 @@ function Ne({ children: e, ...t }) {
 }
 //#endregion
 //#region src/components/Modal/Modal.tsx
-function Pe({ ref: e, children: t, ...n }) {
+function Fe({ ref: e, children: t, ...n }) {
 	return /* @__PURE__ */ s(F, {
 		ref: e,
 		...n,
 		children: t
 	});
 }
-function $({ ref: e, children: t, ...n }) {
+function Ie({ ref: e, children: t, ...n }) {
 	return /* @__PURE__ */ s(I, {
 		ref: e,
 		...n,
 		children: t
 	});
 }
-function Fe({ ref: e, children: t, ...n }) {
+function Le({ ref: e, children: t, ...n }) {
 	return /* @__PURE__ */ s(L, {
 		ref: e,
 		...n,
 		children: t
 	});
 }
-function Ie({ ref: e, children: t, ...n }) {
+function Re({ ref: e, children: t, ...n }) {
 	return /* @__PURE__ */ s(R, {
 		ref: e,
 		...n,
 		children: t
 	});
 }
-function Le({ ref: e, children: t, ...n }) {
+function ze({ ref: e, children: t, ...n }) {
 	return /* @__PURE__ */ s(z, {
 		ref: e,
 		...n,
@@ -384,13 +394,13 @@ function Le({ ref: e, children: t, ...n }) {
 }
 //#endregion
 //#region src/components/Pagination/Pagination.tsx
-function Re({ children: e, ...t }) {
+function Be({ children: e, ...t }) {
 	return /* @__PURE__ */ s(B, {
 		...t,
 		children: e
 	});
 }
-function ze({ children: e, ...t }) {
+function Ve({ children: e, ...t }) {
 	return /* @__PURE__ */ s(V, {
 		...t,
 		children: e
@@ -398,7 +408,7 @@ function ze({ children: e, ...t }) {
 }
 //#endregion
 //#region src/components/Popover/Popover.tsx
-function Be({ title: r, children: i, placement: a, id: o, content: l, trigger: u = "click" }) {
+function He({ title: r, children: i, placement: a, id: o, content: l, trigger: u = "click" }) {
 	let d = n(), f = o ?? d, p = t(i) ? e(i, {
 		title: r,
 		"data-toggle": "popover",
@@ -425,7 +435,7 @@ function Be({ title: r, children: i, placement: a, id: o, content: l, trigger: u
 }
 //#endregion
 //#region src/components/Tables/Tables.tsx
-function Ve({ children: e, ...t }) {
+function Ue({ children: e, ...t }) {
 	return /* @__PURE__ */ s(K, {
 		...t,
 		children: e
@@ -433,7 +443,7 @@ function Ve({ children: e, ...t }) {
 }
 //#endregion
 //#region src/components/Tabs/Tabs.tsx
-function He({ tabStyle: e = "standard", className: t, children: n, ...r }) {
+function We({ tabStyle: e = "standard", className: t, children: n, ...r }) {
 	let i = [e === "line" && "nav-tabs-line", t].filter(Boolean).join(" ");
 	return /* @__PURE__ */ s(J, {
 		className: i || void 0,
@@ -441,7 +451,7 @@ function He({ tabStyle: e = "standard", className: t, children: n, ...r }) {
 		children: n
 	});
 }
-function Ue({ children: e, ...t }) {
+function Ge({ children: e, ...t }) {
 	return /* @__PURE__ */ s(q, {
 		...t,
 		children: e
@@ -449,7 +459,7 @@ function Ue({ children: e, ...t }) {
 }
 //#endregion
 //#region src/components/Tooltip/Tooltip.tsx
-function We({ title: r, children: i, placement: a, id: o }) {
+function Ke({ title: r, children: i, placement: a, id: o }) {
 	let c = n(), l = o ?? c, u = t(i) ? e(i, {
 		title: r,
 		"data-toggle": "tooltip",
@@ -469,7 +479,7 @@ function We({ title: r, children: i, placement: a, id: o }) {
 }
 //#endregion
 //#region src/layouts/Layouts/Layout.tsx
-function Ge({ children: e, pageClass: t = "" }) {
+function qe({ children: e, pageClass: t = "" }) {
 	return /* @__PURE__ */ s("div", {
 		id: "content-wrapper",
 		children: /* @__PURE__ */ s("section", {
@@ -491,4 +501,4 @@ function Ge({ children: e, pageClass: t = "" }) {
 	});
 }
 //#endregion
-export { X as Accordion, Z as Alert, ne as AlertToast, re as Badge, ie as Button, se as Card, ce as CardBody, le as CardFooter, _e as CardGroup, ue as CardHeader, de as CardImg, fe as CardImgOverlay, pe as CardLink, he as CardSubtitle, me as CardText, ge as CardTitle, oe as CircleButton, ye as Costep, ve as Costeps, je as Feedback, be as Form, Ee as FormCheck, De as FormCheckInput, Oe as FormCheckLabel, Ce as FormControl, xe as FormGroup, Se as FormLabel, ke as FormRange, Te as FormSelect, we as FormText, Q as Icon, ae as IconButton, Ae as InputGroup, Ge as Layout, Me as ListGroup, Ne as ListGroupItem, Pe as Modal, Ie as ModalBody, Le as ModalFooter, $ as ModalHeader, Fe as ModalTitle, ze as PageItem, Re as Pagination, Be as Popover, Ue as Tab, Ve as Table, He as Tabs, We as Tooltip };
+export { X as Accordion, Z as Alert, re as AlertToast, ie as Badge, ae as Button, se as Card, ce as CardBody, le as CardFooter, _e as CardGroup, ue as CardHeader, de as CardImg, fe as CardImgOverlay, pe as CardLink, he as CardSubtitle, me as CardText, ge as CardTitle, oe as CircleButton, ve as Collapse, be as Costep, ye as Costeps, Me as Feedback, xe as Form, De as FormCheck, Oe as FormCheckInput, ke as FormCheckLabel, we as FormControl, Se as FormGroup, Ce as FormLabel, Ae as FormRange, Ee as FormSelect, Te as FormText, Q as Icon, $ as IconButton, je as InputGroup, qe as Layout, Ne as ListGroup, Pe as ListGroupItem, Fe as Modal, Re as ModalBody, ze as ModalFooter, Ie as ModalHeader, Le as ModalTitle, Ve as PageItem, Be as Pagination, He as Popover, Ge as Tab, Ue as Table, We as Tabs, Ke as Tooltip };
