@@ -103,4 +103,5 @@ $theme-colors: map-merge($theme-colors, (
 @import '../components/Tabs/nav';
 @import '../components/Tabs/nav-collapsible';
 @import '../components/TextExpander/text-expander';
+@import '../components/ListGroup/opt-group';
 @import '../layouts/Layouts/layout';
