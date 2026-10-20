@@ -125,6 +125,16 @@ $spacers: (
 	6: $spacer * 4.5
 );
 
+// Bootstrap 5 added an xxl breakpoint whose container grows to 1320px;
+// cap it at the BS4 xl width so .container never exceeds 1140px.
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1140px,
+	xxl: 1140px
+);
+
 // $theme-colors additions live in index.scss (they need Bootstrap's map,
 // which only exists after bootstrap/scss/variables is imported).
 
