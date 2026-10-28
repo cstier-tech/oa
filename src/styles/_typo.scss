@@ -96,9 +96,21 @@ h6, .h6 {
     }
 }
 
-.font-weight-medium, .fwm {
-    font-weight: $font-weight-medium !important;
+@each $name, $weight in (
+    light: $font-weight-light,
+    lighter: $font-weight-lighter,
+    normal: $font-weight-normal,
+    medium: $font-weight-medium,
+    semibold: $font-weight-semibold,
+    bold: $font-weight-bold,
+    bolder: $font-weight-bolder
+) {
+    .font-weight-#{$name} {
+        font-weight: $weight !important;
+    }
 }
+
+.fwm { @extend .font-weight-medium; }
 
 .fwb { @extend .fw-bold; }
 .fwn { @extend .fw-normal; }
