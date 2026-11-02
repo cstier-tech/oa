@@ -607,4 +607,170 @@ function at({ children: e, pageClass: t = "" }) {
 	});
 }
 //#endregion
-export { ce as Accordion, Y as Alert, le as AlertToast, ue as Badge, Z as Button, pe as Card, me as CardBody, he as CardFooter, Ce as CardGroup, ge as CardHeader, _e as CardImg, ve as CardImgOverlay, ye as CardLink, xe as CardSubtitle, be as CardText, Se as CardTitle, fe as CircleButton, it as Col, Q as Collapse, nt as Container, Te as Costep, we as Costeps, Le as Feedback, Ee as Form, Me as FormCheck, Ne as FormCheckInput, Pe as FormCheckLabel, ke as FormControl, De as FormGroup, Oe as FormLabel, Fe as FormRange, je as FormSelect, Ae as FormText, X as Icon, de as IconButton, Ie as InputGroup, at as Layout, Re as ListGroup, ze as ListGroupItem, Be as Modal, Ue as ModalBody, We as ModalFooter, Ve as ModalHeader, He as ModalTitle, Ge as Offcanvas, Ke as OffcanvasCloser, $ as OptContent, Je as OptItem, qe as OptList, Xe as PageItem, Ye as Pagination, Ze as Popover, rt as Row, et as Tab, Qe as Table, $e as Tabs, tt as Tooltip };
+//#region src/layouts/Layouts/Page.tsx
+function ot({ children: e }) {
+	return /* @__PURE__ */ l("div", {
+		id: "page",
+		children: [/* @__PURE__ */ c("div", { className: "canvas-blocker canvas-slidable" }), /* @__PURE__ */ c("div", {
+			className: "canvas-slidable page-main",
+			children: e
+		})]
+	});
+}
+//#endregion
+//#region src/layouts/Layouts/Header.tsx
+function st() {
+	return /* @__PURE__ */ l("header", {
+		id: "header",
+		children: [/* @__PURE__ */ c("div", {
+			className: "menubar-section d-none d-lg-block menubar-inverse",
+			children: /* @__PURE__ */ c("div", { className: "container menubar-container" })
+		}), /* @__PURE__ */ c("div", {
+			className: "shopbar-section shopbar-inverse",
+			children: /* @__PURE__ */ c("div", {
+				className: "container shopbar-container",
+				children: /* @__PURE__ */ c("div", { className: "shopbar" })
+			})
+		})]
+	});
+}
+//#endregion
+//#region src/layouts/Layouts/Footer.tsx
+function ct() {
+	return /* @__PURE__ */ l("footer", {
+		id: "footer",
+		className: "footer-light",
+		children: [/* @__PURE__ */ c("div", {
+			className: "footer-main-wrapper",
+			children: /* @__PURE__ */ c("div", {
+				className: "container footer-main",
+				children: /* @__PURE__ */ l("div", {
+					className: "row sm-gutters",
+					children: [
+						/* @__PURE__ */ c("div", {
+							className: "col-md-3",
+							children: /* @__PURE__ */ l("nav", {
+								className: "footer-links nav-collapsible",
+								children: [/* @__PURE__ */ c("h4", {
+									className: "footer-title nav-toggler collapsed",
+									"data-toggle": "collapse",
+									"data-target": "#footer-info",
+									"aria-controls": "footer-info",
+									"aria-expanded": "false",
+									children: "Information"
+								}), /* @__PURE__ */ c("div", {
+									className: "collapse nav-collapse",
+									id: "footer-info",
+									children: /* @__PURE__ */ c("div", {
+										className: "cms-menu cms-menu-linklist",
+										"data-menu-name": "footerinformation",
+										children: /* @__PURE__ */ l("ul", {
+											className: "list-unstyled",
+											children: [/* @__PURE__ */ c("li", { children: /* @__PURE__ */ c("a", {
+												href: "#",
+												className: "menu-link",
+												children: /* @__PURE__ */ c("span", { children: "What's New" })
+											}) }), /* @__PURE__ */ c("li", { children: /* @__PURE__ */ c("a", {
+												href: "#",
+												className: "menu-link",
+												children: /* @__PURE__ */ c("span", { children: "Recently viewed products" })
+											}) })]
+										})
+									})
+								})]
+							})
+						}),
+						/* @__PURE__ */ c("div", {
+							className: "col-md-3",
+							children: /* @__PURE__ */ l("nav", {
+								className: "footer-links nav-collapsible",
+								children: [/* @__PURE__ */ l("h4", {
+									className: "footer-title nav-toggler collapsed",
+									"data-toggle": "collapse",
+									"data-target": "#footer-service",
+									"aria-controls": "footer-service",
+									"aria-expanded": "false",
+									children: [/* @__PURE__ */ c("span", {
+										className: "d-none d-md-block",
+										children: "Service"
+									}), /* @__PURE__ */ c("span", {
+										className: "d-md-none",
+										children: "Service"
+									})]
+								}), /* @__PURE__ */ c("div", {
+									className: "collapse nav-collapse",
+									id: "footer-service",
+									children: /* @__PURE__ */ c("div", {
+										className: "cms-menu cms-menu-linklist",
+										"data-menu-name": "footerservice",
+										children: /* @__PURE__ */ c("ul", {
+											className: "list-unstyled",
+											children: /* @__PURE__ */ c("li", { children: /* @__PURE__ */ c("a", {
+												href: "#",
+												className: "menu-link",
+												children: /* @__PURE__ */ c("span", { children: "Contact us" })
+											}) })
+										})
+									})
+								})]
+							})
+						}),
+						/* @__PURE__ */ c("div", {
+							className: "col-md-3",
+							children: /* @__PURE__ */ l("nav", {
+								className: "footer-links company nav-collapsible",
+								children: [/* @__PURE__ */ l("h4", {
+									className: "footer-title nav-toggler collapsed",
+									"data-toggle": "collapse",
+									"data-target": "#footer-company",
+									"aria-controls": "footer-company",
+									"aria-expanded": "false",
+									children: [/* @__PURE__ */ c("span", {
+										className: "d-none d-md-block",
+										children: "Company"
+									}), /* @__PURE__ */ c("span", {
+										className: "d-md-none",
+										children: "Company"
+									})]
+								}), /* @__PURE__ */ c("div", {
+									className: "collapse nav-collapse",
+									id: "footer-company",
+									children: /* @__PURE__ */ c("div", {
+										className: "cms-menu cms-menu-linklist",
+										"data-menu-name": "footercompany",
+										children: /* @__PURE__ */ c("ul", {
+											className: "list-unstyled",
+											children: /* @__PURE__ */ c("li", { children: /* @__PURE__ */ c("a", {
+												href: "#",
+												className: "menu-link",
+												children: /* @__PURE__ */ c("span", { children: "Privacy policy" })
+											}) })
+										})
+									})
+								})]
+							})
+						}),
+						/* @__PURE__ */ c("div", {
+							className: "col-md-3 order-first",
+							children: /* @__PURE__ */ l("div", {
+								className: "theme-selector d-none d-md-block",
+								children: [/* @__PURE__ */ c("h4", { children: "Themes" }), /* @__PURE__ */ c("div", { className: "content" })]
+							})
+						})
+					]
+				})
+			})
+		}), /* @__PURE__ */ c("div", {
+			className: "footer-bottom-wrapper",
+			children: /* @__PURE__ */ c("div", {
+				className: "container footer-bottom",
+				children: /* @__PURE__ */ l("div", {
+					className: "row sm-gutters",
+					children: [/* @__PURE__ */ c("div", { className: "col-12 col-sm-auto pb-1 pb-sm-0 text-sm-center" }), /* @__PURE__ */ c("div", { className: "col text-sm-right" })]
+				})
+			})
+		})]
+	});
+}
+//#endregion
+export { ce as Accordion, Y as Alert, le as AlertToast, ue as Badge, Z as Button, pe as Card, me as CardBody, he as CardFooter, Ce as CardGroup, ge as CardHeader, _e as CardImg, ve as CardImgOverlay, ye as CardLink, xe as CardSubtitle, be as CardText, Se as CardTitle, fe as CircleButton, it as Col, Q as Collapse, nt as Container, Te as Costep, we as Costeps, Le as Feedback, ct as Footer, Ee as Form, Me as FormCheck, Ne as FormCheckInput, Pe as FormCheckLabel, ke as FormControl, De as FormGroup, Oe as FormLabel, Fe as FormRange, je as FormSelect, Ae as FormText, st as Header, X as Icon, de as IconButton, Ie as InputGroup, at as Layout, Re as ListGroup, ze as ListGroupItem, Be as Modal, Ue as ModalBody, We as ModalFooter, Ve as ModalHeader, He as ModalTitle, Ge as Offcanvas, Ke as OffcanvasCloser, $ as OptContent, Je as OptItem, qe as OptList, ot as Page, Xe as PageItem, Ye as Pagination, Ze as Popover, rt as Row, et as Tab, Qe as Table, $e as Tabs, tt as Tooltip };
