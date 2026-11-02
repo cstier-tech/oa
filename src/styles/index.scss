@@ -95,6 +95,7 @@ $theme-colors: map-merge($theme-colors, (
 @import '../components/Dropdown/dropdown';
 @import '../components/Form/forms';
 @import '../components/Modal/modal';
+@import '../components/Offcanvas/offcanvas';
 @import '../components/Pagination/pagination';
 @import '../components/Product/product';
 @import '../components/Rangeslider/rangeslider';
