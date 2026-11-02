@@ -594,12 +594,9 @@ function at({ children: e, pageClass: t = "" }) {
 				children: /* @__PURE__ */ c("div", {
 					id: "content-center",
 					className: "col-lg-12",
-					children: /* @__PURE__ */ l("div", {
+					children: /* @__PURE__ */ c("div", {
 						className: `page ${t}`.trim(),
-						children: [/* @__PURE__ */ c("div", { className: "canvas-blocker canvas-slidable" }), /* @__PURE__ */ c("div", {
-							className: "canvas-slidable page-main",
-							children: e
-						})]
+						children: e
 					})
 				})
 			})

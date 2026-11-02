@@ -12,10 +12,7 @@ export function Layout({ children, pageClass = '' }: LayoutProps) {
                 <div id="content-body" className="row">
                     <div id="content-center" className="col-lg-12">
                         <div className={`page ${pageClass}`.trim()}>
-                            <div className="canvas-blocker canvas-slidable"></div>
-                            <div className='canvas-slidable page-main'>
-                               {children} 
-                            </div>
+                            {children}
                         </div>
                     </div>
                 </div>
