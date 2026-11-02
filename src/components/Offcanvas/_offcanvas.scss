@@ -32,17 +32,6 @@ body.canvas-noscroll {
 }
 
 
-/* TOGGLER
---------------------------------------------*/
-
-.navbar-toggler { 
-    position: relative;
-    background-color: transparent;
-    outline: none;
-    &:focus { outline: none }
-}
-
-
 /* PARENT CANVAS BLOCKER
 --------------------------------------------*/
 
@@ -74,7 +63,9 @@ body.canvas-blocking .canvas-blocker {
 /* OFFCANVAS ELEMENT
 --------------------------------------------*/
 
-.offcanvas {
+// Not .offcanvas / .offcanvas-lg: those are Bootstrap's, which would add its
+// own rules to this panel and let these rules restyle Bootstrap's offcanvas
+.offcanvas-panel {
     position: fixed;
     display: block;
     visibility: hidden;
@@ -99,7 +90,7 @@ body.canvas-blocking .canvas-blocker {
         transform: translate3d($offcanvas-offset-p, 0, 0);
     }
 
-    &.offcanvas-lg {
+    &.offcanvas-panel-lg {
         width: $offcanvas-width-lg;
     }
 
@@ -125,11 +116,11 @@ body.canvas-blocking .canvas-blocker {
     }
 
     @media (max-width: $offcanvas-width) {
-        &.offcanvas { width: 100% !important; }
+        &.offcanvas-panel { width: 100% !important; }
     }
 
     @media (max-width: $offcanvas-width-lg) {
-        &.offcanvas-lg { width: 100%; }
+        &.offcanvas-panel-lg { width: 100%; }
     }
 
     &.offcanvas-push.on,
