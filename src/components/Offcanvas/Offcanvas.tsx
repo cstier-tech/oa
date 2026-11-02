@@ -2,20 +2,37 @@
 
 import type React from "react"
 import { Button } from '../Button'
+import { useEffect } from "react"
 
 export type Offcanvas = {
     children?: React.ReactNode,
     placement?: 'left' | 'right',
-    fullscreen?: boolean,
+    size?: 'default' | 'lg' | 'fullscreen'
     shadow?: boolean,
     show?: boolean,
     id?: string
 }
 
-export function Offcanvas({ children, placement = 'left', shadow = true, fullscreen = false, show, id }: Offcanvas) {
+
+
+export function Offcanvas({ children, placement = 'left', shadow = true, size = 'default', show, id }: Offcanvas) {
+
+    useEffect(() => {
+        if (!show) return
+
+        const bodyClasses = ['canvas-slid', 'canvas-sliding', 'canvas-overlay']
+        bodyClasses.push(placement === 'left' ? 'canvas-sliding-left' : 'canvas-sliding-right')
+        if (size === 'fullscreen') bodyClasses.push('canvas-fullscreen')
+        if (size === 'lg') bodyClasses.push('canvas-lg')
+
+        document.body.classList.add(...bodyClasses)
+        return () => document.body.classList.remove(...bodyClasses)
+    }, [show, placement, size])
+
+
     return (
         <aside id={id}
-            className={`offcanvas-panel offcanvas-overlay ${show ? 'on' : ''} ${fullscreen ? 'offcanvas-fullscreen' : 'offcanvas-panel-lg'} ${shadow ? 'offcanvas-shadow' : ''} ${placement === 'right' ? 'offcanvas-right' : 'offcanvas-left'}`}
+            className={`offcanvas-panel offcanvas-overlay ${show ? 'on' : ''} ${size === 'fullscreen' ? 'offcanvas-fullscreen' : ''} ${size === 'lg' ? 'offcanvas-panel-lg' : ''} ${shadow ? 'offcanvas-shadow' : ''} ${placement === 'right' ? 'offcanvas-right' : 'offcanvas-left'}`}
             data-blocker="true"
             data-overlay="true">
             <div className="offcanvas-content">
