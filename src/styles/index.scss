@@ -111,34 +111,6 @@ body.canvas-noscroll {
     height: 100%;
 }
 
-
-/* PARENT CANVAS BLOCKER FOR OFFCANVAS
---------------------------------------------*/
-
-.canvas-blocker {
-    position: fixed;
-    z-index: 0 !important;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    background-color: #000;
-    opacity: 0;
-    transition: opacity $offcanvas-duration $offcanvas-easing,
-                transform $offcanvas-duration $offcanvas-easing,
-                z-index 0s linear $offcanvas-duration;
-
-    overflow: hidden;
-}
-
-body.canvas-blocking .canvas-blocker {
-    z-index: $zindex-fixed+1 !important;
-    opacity: 0.3;
-    transition: opacity $offcanvas-duration $offcanvas-easing,
-                transform $offcanvas-duration $offcanvas-easing,
-                z-index 0s 0s !important;
-
-}
-
 @import '../components/Alert/alert';
 @import '../components/Badge/badge';
 @import '../components/Button/buttons';

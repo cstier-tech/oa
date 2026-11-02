@@ -21,7 +21,7 @@ export function Offcanvas({ children, placement = 'left', shadow = true, size = 
         if (!show) return
 
         const bodyClasses = ['canvas-slid', 'canvas-sliding', 'canvas-overlay']
-        bodyClasses.push(placement === 'left' ? 'canvas-sliding-left' : 'canvas-sliding-right')
+        bodyClasses.push(placement === 'left' ? 'canvas-sliding-right' : 'canvas-sliding-left')
         if (size === 'fullscreen') bodyClasses.push('canvas-fullscreen')
         if (size === 'lg') bodyClasses.push('canvas-lg')
 

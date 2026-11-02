@@ -405,7 +405,7 @@ function Ge({ children: e, placement: t = "left", shadow: r = !0, size: i = "def
 			"canvas-sliding",
 			"canvas-overlay"
 		];
-		return e.push(t === "left" ? "canvas-sliding-left" : "canvas-sliding-right"), i === "fullscreen" && e.push("canvas-fullscreen"), i === "lg" && e.push("canvas-lg"), document.body.classList.add(...e), () => document.body.classList.remove(...e);
+		return e.push(t === "left" ? "canvas-sliding-right" : "canvas-sliding-left"), i === "fullscreen" && e.push("canvas-fullscreen"), i === "lg" && e.push("canvas-lg"), document.body.classList.add(...e), () => document.body.classList.remove(...e);
 	}, [
 		a,
 		t,
@@ -594,9 +594,12 @@ function at({ children: e, pageClass: t = "" }) {
 				children: /* @__PURE__ */ c("div", {
 					id: "content-center",
 					className: "col-lg-12",
-					children: /* @__PURE__ */ c("div", {
+					children: /* @__PURE__ */ l("div", {
 						className: `page ${t}`.trim(),
-						children: e
+						children: [/* @__PURE__ */ c("div", { className: "canvas-blocker canvas-slidable" }), /* @__PURE__ */ c("div", {
+							className: "canvas-slidable page-main",
+							children: e
+						})]
 					})
 				})
 			})
